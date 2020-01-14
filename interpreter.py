@@ -4,6 +4,7 @@ class Parser:
     def __init__(self):
         self.result = []
 
+
     def word(self, input):
         "Converts a MIPS 'word' command into binary machine code (as a string)."
         if len(input)!= 1:
@@ -105,6 +106,8 @@ if __name__ == "__main__":
     parser = Parser()
     if args.line:
         input = args.line.split(' ')
+        if input[0] = '.word':
+            input[0] = input[0][1:]
         func = getattr(parser, input[0].lower())
         func(input[1:])
 
@@ -112,6 +115,8 @@ if __name__ == "__main__":
         f_in = open(args.in_file, 'r')
         for line in f_in:
             input = line.split(' ')
+            if input[0] = '.word':
+                input[0] = input[0][1:]
             func = getattr(parser, input[0].lower())
             func(input[1:])
 
