@@ -10,7 +10,7 @@ class Parser:
         if len(input)!= 1:
             self.result.append("".join(map(str, input)))
         
-        return bin(int(input[0]))[2:].zfill(32)
+        self.result.append(bin(int(input[0]))[2:].zfill(32))
 
     def add(self, input):
         "Converts a MIPS 'add' command into binary machine code (as a string)."
